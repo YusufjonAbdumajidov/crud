@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Books = () => {
    const [ books, setBooks ] = useState([]);
@@ -21,7 +22,7 @@ const Books = () => {
        <h1>Book shop</h1>
        <div className="books">
         {books.map(book => (
-            <div className="book">
+            <div className="book" key={book.id}>
                 {book.cover && <img src={book.cover} alt="" />}
                 <h2>{book.title}</h2>
                 <p>{book.desc}</p>
@@ -29,6 +30,7 @@ const Books = () => {
             </div>
         ))}
        </div>
+       <button><Link to='/add'>Add new book</Link></button>
     </div>
   )
 }
