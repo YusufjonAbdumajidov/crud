@@ -108,7 +108,7 @@ const Update = () => {
         name="cover"
         onChange={handleChange}
       />
-      <button onClick={handleClick}>Update</button>
+      <button className="addBtn" onClick={handleClick}>Update</button>
       {error && "Something went wrong!"}
       <Link to="/">See all books</Link>
     </div>

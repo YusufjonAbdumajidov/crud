@@ -29,19 +29,23 @@ const Books = () => {
   return (
     <div>
        <h1>Book shop</h1>
+       {books.length === 0 ? <p>No books yet</p> : "" }
        <div className="books">
         {books.map(book => (
             <div className="book" key={book.id}>
-                {book.cover && <img src={book.cover} alt="" />}
+                {/* {book.cover && <img src={book.cover} alt="" />} */}
+                <img src="https://cdn.activestate.com/wp-content/uploads/2020/10/The-C-Programming-Language-e1603821228331.jpg" alt="" />
                 <h2>{book.title}</h2>
                 <p>{book.desc}</p>
-                <span>{book.price}</span>
-                <button className="delete" onClick={()=> handleDelete(book.id)}>Delete</button>
-                <button className="update"><Link to={`/update/${book.id}`}>Update</Link></button>
+                <span>{book.price}$</span>
+                <section>
+                  <button className="delete" onClick={()=> handleDelete(book.id)}>Delete</button>
+                  <button className="update"><Link style={{color: "#fff"}} to={`/update/${book.id}`}>Update</Link></button>
+                </section>
             </div>
         ))}
        </div>
-       <button><Link to='/add'>Add new book</Link></button>
+       <button className='addBtn'><Link style={{color: "rgb(29, 195, 82)"}} to='/add'>Add new book</Link></button>
     </div>
   )
 }
